@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        /* Navbar */
+        nav {
+            background: #fff;
+            padding: 15px 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ff6b6b;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('hero-bg.jpg') no-repeat center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin: 20px 0;
+            font-weight: 300;
+        }
+
+        .hero a {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #ff6b6b;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .hero a:hover {
+            background-color: #e54b4b;
+        }
+/* About Section Styling */
+#about {
+    background-color: #f4f4f4;
+    padding: 60px 0;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+}
+
+.about-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.about-text {
+    flex: 1;
+    max-width: 500px;
+    text-align: left;
+}
+
+.about-text h2 {
+    font-size: 2.5rem;
+    color: #ff6b6b;
+    text-shadow: 0 0 12px rgba(255, 107, 107, 0.8); /* Aura effect */
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    font-size: 1.2rem;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.about-image {
+    flex: 1;
+    max-width: 400px;
+    text-align: center;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect on Image */
+.about-image img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 107, 107, 0.8); /* Aura effect on hover */
+}
+
+@media screen and (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .about-text h2 {
+        font-size: 2rem;
+    }
+
+    .about-text p {
+        font-size: 1rem;
+    }
+}
+
+
+        /* Portfolio Section */
+        #portfolio {
+            padding: 80px 0;
+        }
+
+        #portfolio h2 {
+            font-size: 2.5rem;
+            color: #ff6b6b;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        #portfolio .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-10px);
+        }
+
+        .project h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        /* Testimonials */
+        #testimonials {
+            background: #f9f9f9;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        #testimonials h2 {
+            font-size: 2.5rem;
+            color: #ff6b6b;
+            margin-bottom: 40px;
+        }
+
+        .testimonial {
+            background: #fff;
+            padding: 30px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+/* Contact Section */
+#contact {
+    background-color: #fff;
+    padding: 50px 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#contact h2 {
+    font-size: 2.5rem;
+    color: #ff6b6b;
+    margin-bottom: 20px;
+}
+
+#contact p {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    color: #666;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.form-container {
+    background: #f9f9f9;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+#contact input, #contact textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+    background-color: #f4f4f4;
+}
+
+#contact input:focus, #contact textarea:focus {
+    border-color: #ff6b6b;
+    background-color: #fff;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    background-color: #ff6b6b;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #e54b4b;
+}
+
+.contact-info {
+    background: #f9f9f9;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.contact-info p {
+    font-size: 1rem;
+    color: #666;
+}
+
+.contact-info a {
+    color: #ff6b6b;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-info a:hover {
+    color: #e54b4b;
+}
+
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icons a {
+    margin-right: 15px;
+}
+
+.social-icons img {
+    width: 35px;
+    height: 35px;
+    transition: transform 0.3s;
+}
+
+.social-icons a:hover img {
+    transform: scale(1.1);
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+footer a {
+    color: #ff6b6b;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #e54b4b;
+}
+
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer a {
+            color: #ff6b6b;
+            text-decoration: none;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <h1>Welcome to Oladokun Aliyah's Portfolio</h1>
+        <p>Building creative and functional web solutions.</p>
+        <a href="#contact">Hire Me</a>
+    </section>
+
+    <section id="about">
+        <div class="about-container">
+            <div class="about-text">
+                <h2>About Me</h2>
+                <p>I'm a passionate web developer with experience in creating modern, user-friendly websites. My skills include HTML, CSS, JavaScript, and React. I believe in clean, maintainable code and a great user experience.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://www.mediabistro.com/wp-content/uploads/2016/02/tips-on-getting-your-copywriter-portfolio-started.jpg" alt="About Me">
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="portfolio">
+        <h2>My Projects</h2>
+        <div class="grid">
+            <div class="project">
+                <h3>Project 1</h3>
+                <p>Short description of the project.</p>
+            </div>
+            <div class="project">
+                <h3>Project 2</h3>
+                <p>Short description of the project.</p>
+            </div>
+            <div class="project">
+                <h3>Project 3</h3>
+                <p>Short description of the project.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials">
+        <h2>What My Clients Say</h2>
+        <div class="testimonial">"Great work! Delivered on time and exceeded expectations."</div>
+        <div class="testimonial">"Highly recommend. Professional and skilled."</div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <p>I'd love to hear from you! Whether you have a question or just want to say hello, feel free to drop me a message below or reach out through my social media.</p>
+            <div class="contact-grid">
+                <div class="form-container">
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" placeholder="Enter a valid email address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" placeholder="Write your message here" required></textarea>
+                        </div>
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p>Email: <a href="mailto:yourname@example.com">aliyaholadokun@gmail.com</a></p>
+                    <p>Phone: <a href="tel:+1234567890">+234-915-4174-314</a></p>
+                    <h3>Follow Me</h3>
+                    <div class="social-icons">
+                        <a href="https://linkedin.com" target="_blank" title="LinkedIn"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlh2DiY-UY_24sTF_1-yecTQI275oFKmBKxg&s" alt="LinkedIn"></a>
+                        <a href="https://x.com" target="_blank" title="X"><img src="https://i.pinimg.com/736x/c8/d3/d4/c8d3d4d12a8ea35b58e35de9ec820a22.jpg" alt="X"></a>
+                        <a href="https://github.com" target="_blank" title="GitHub"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFKUd8TKlGho5jUUcPimr0MKnVEyIP3uI-TQ&s" alt="GitHub"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<footer>
+<p>&copy; 2025 Oladokun Aliyah. All rights reserved. | <a href="#">Privacy Policy</a></p>
+</footer>
+</body>
+</html>
